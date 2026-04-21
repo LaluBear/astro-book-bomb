@@ -1,0 +1,32 @@
+---
+import { config } from 'astro:schema';
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+import BookCard from '../../components/BookCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+
+
+const books: CollectionEntry<"books">[] = await getCollection("books");
+---
+
+<Layout>
+	<div class="content">
+        <h1 class="text-4xl px-4">
+            Books
+        </h1>
+        <div class="flex flex-col gap-4">
+            {books.map((book)=>{
+                return(
+                    <Fragment>
+                        <BookCard book={book} />
+                    </Fragment>
+                )
+            })}
+            {books.length < 1 && <p>No books found.</p>}
+        </div>
+        <p>This is the books page.</p>
+        <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit.</p>		
+    </div>
+	<Welcome />
+</Layout>

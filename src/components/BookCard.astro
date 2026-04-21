@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+
+interface Props {
+    book: CollectionEntry<"books">;
+}
+
+const book: CollectionEntry<"books"> = Astro.props.book;
+---
+
+<div class="bg-white p-4 rounded-xl shadow">
+    <h2 class="text-xl font-bold">{book.data.title}</h2>
+    <div>
+        <p class="font-medium">{book.data.author}</p>
+        <p class="text-gray-600">{book.data.summary}</p>
+    </div>
+    <a href={`/books/${book.id}`} class=" text-purple-500 hover:underline mt-2 block">Read Review</a>
+    <!-- <a href={`/books/${book.slug}`} class="text-blue-500 hover:underline mt-2 block">Read Review</a> -->
+</div>

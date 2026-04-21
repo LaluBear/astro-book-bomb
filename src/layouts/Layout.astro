@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body class="">
+		<header class="text-3xl font-bold">
+			<nav>
+				<ul class="flex gap-4 p-2 px-8 text-3xl">
+					<li class="flex flex-1 hover:text-purple-700"><a href="/">
+						Book Bites
+					</a></li>
+					<li class="flex flex-1 justify-end px-8">
+						<li><a class="hover:text-purple-600" href="/">Home</a></li>
+						<li><a class="hover:text-purple-600" href="/about">About</a></li>
+						<li><a class="hover:text-purple-700" href="/books">Books</a></li>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="px-40 py-20 text-2xl">
+			<slot />
+		</div>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
